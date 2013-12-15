@@ -28,23 +28,9 @@ def read_temp():
         temp_string = lines[1][equals_pos+2:]
         temp_c = float(temp_string) / 1000.0
         #temp_f = temp_c * 9.0 / 5.0 + 32.0
-        #return temp_c, temp_f
         timestamp = time.strftime("%y-%m-%d %H:%M:%S")
-        nowday = str(time.localtime()[0])+str(time.localtime()[1])+str(time.localtime()[2])
-        nowtime = str(time.localtime()[3])+":"+str(time.localtime()[4])+":"+str(time.localtime()[5])
-        #return nowday, nowtime, temp_c, timestamp
         return timestamp, temp_c
 
 while True:
     print read_temp()
     time.sleep(10)
-#time.sleep(900)
-
-##original
-#while True:
-#    #print read_temp()
-#    fobj = open("/tmp/temp-datscha.txt", "a")
-#    fobj.write(str(read_temp()[0]) + ";" + str(read_temp()[1]) + ";" + str(read_temp()[2]) + ";" + '\n')
-#    fobj.close()
-#    #time.sleep(60)
-#    #time.sleep(900)#
