@@ -15,7 +15,6 @@ os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
 ## setting the corect files of the sensors
-base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob('/sys/bus/w1/devices/10*')
 device_file = [device_folder[0] + '/w1_slave', device_folder[1] + '/w1_slave']
 
