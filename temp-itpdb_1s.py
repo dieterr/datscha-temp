@@ -2,6 +2,8 @@ import os
 import glob
 import time
 import datetime
+import psycopg2
+import netrc
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -10,6 +12,17 @@ base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '10*')[0]
 device_file = device_folder + '/w1_slave'
 
+HOST = '192.168.0.20psql'
+secrets = netrc.netrc()
+username, account, password = secrets.authenticators( HOST )
+
+#print username, password
+
+try:
+    conn = psycopg2.connect("dbname='temp' user="+username+" host='localhost' password="+password)
+    print "connected to database temp!"
+except:
+    print "I am unable to connect to the database"
 
 
 def read_temp_raw():
