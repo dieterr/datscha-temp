@@ -1,8 +1,0 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
-import glob
-device_list = glob.glob("/sys/bus/w1/devices/10*")
-for device in device_list:
-    print device
-    print len(device)
